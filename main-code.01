@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ferramentas de IA — Disciplina</title>
+  <meta name="description" content="Protótipo de site para a disciplina Ferramentas de Inteligência Artificial" />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#06b6d4;--muted:#94a3b8;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+    body{margin:0;background:linear-gradient(180deg,#071021 0%, #081427 60%);color:#e6eef6;}
+    .container{max-width:1100px;margin:32px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#06b6d4,#3b82f6);display:flex;align-items:center;justify-content:center;font-weight:700;color:#021127}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px}
+    nav a:hover{color:#fff}
+    .hero{background:linear-gradient(90deg,rgba(6,182,212,0.06),transparent);padding:28px;border-radius:12px;margin-top:18px;display:grid;grid-template-columns:1fr 360px;gap:20px}
+    .hero h1{margin:0;font-size:28px}
+    .hero p{color:var(--muted);line-height:1.6}
+    .cta{margin-top:18px}
+    .btn{background:var(--accent);color:#012;display:inline-block;padding:10px 14px;border-radius:8px;font-weight:600;text-decoration:none}
+    .card{background:var(--card);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .muted{color:var(--muted)}
+    section{margin-top:20px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .tools{display:flex;flex-wrap:wrap;gap:10px}
+    .tool{background:var(--glass);padding:8px 10px;border-radius:8px;color:var(--muted);font-size:14px}
+    .accordion h3{margin:0;display:flex;justify-content:space-between;cursor:pointer;padding:12px}
+    .panel{max-height:0;overflow:hidden;transition:all .28s ease;padding:0 12px}
+    .panel.open{max-height:600px;padding:12px}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    footer{margin-top:30px;padding:18px;text-align:center;color:var(--muted)}
+    .badge{display:inline-block;background:rgba(255,255,255,0.04);padding:6px 8px;border-radius:999px;font-weight:600}
+    /* responsive */
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.logo{width:48px;height:48px}}
+    /* small UI bits */
+    .news-item{border-left:3px solid rgba(255,255,255,0.04);padding-left:12px;margin-bottom:12px}
+    .flex{display:flex;align-items:center;gap:12px}
+    .pill{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;color:var(--muted)}
+    .quiz{display:flex;flex-direction:column;gap:8px}
+    .input, textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .small{font-size:14px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">AI</div>
+        <div>
+          <div style="font-weight:700">Ferramentas de IA</div>
+          <div class="small">CIN/UFPE — Disciplina | 60 h (30 teóricas / 30 práticas)</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#home">Início</a>
+        <a href="#ementa">Ementa</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#ferramentas">Ferramentas</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div>
+          <h1>Aprenda a usar ferramentas de IA na prática — transforme ideias em projetos reais</h1>
+          <p class="muted">Nesta disciplina você dominará ferramentas como ChatGPT, Manus, DALL·E, Midjourney, GitHub Copilot e Synthesia, construirá projetos interdisciplinares e discutirá ética e responsabilidade no uso da IA.</p>
+          <div class="cta">
+            <a class="btn" href="#ementa">Ver a ementa</a>
+            <a class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.06);margin-left:8px;color:var(--muted)" href="#projetos">Ver projetos</a>
+          </div>
+
+          <div style="margin-top:18px" class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div style="font-weight:700">Por que cursar?</div>
+                <div class="small muted">Aprenda a aplicar IA no mundo real, ganhe habilidades práticas e destaque-se no mercado.</div>
+              </div>
+              <div class="badge">Eletiva / Créditos: 3</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card">
+          <div style="font-weight:700">Próximas atualizações</div>
+          <div class="small muted" id="next-up">Semanas 1–2: Introdução e configuração de ferramentas</div>
+
+          <hr style="margin:12px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
+
+          <div style="font-weight:700;margin-bottom:6px">Notícias</div>
+          <div class="news-item">
+            <div style="font-weight:700">Aula inaugural — Demonstração de ferramentas</div>
+            <div class="small muted">Data: 01/10 • Aula prática com ChatGPT e DALL·E</div>
+          </div>
+
+          <div style="margin-top:8px">
+            <a class="btn" href="#inscrever">Inscrever-se / Ficha</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="ementa" class="card" style="margin-top:18px">
+        <h2>Ementa resumida</h2>
+        <p class="muted">Utilização de ferramentas como ChatGPT, Grok, Manus, DALL·E, GitHub Copilot, Synthesia e outras. Aplicações éticas e responsáveis da tecnologia. Projetos práticos e integração.</p>
+
+        <div class="accordion" style="margin-top:12px">
+          <div class="card">
+            <h3 onclick="togglePanel('p1')">1. Introdução ao Ecossistema de IA <span class="pill">ver</span></h3>
+            <div id="p1" class="panel">
+              <p class="small muted">Panorama, criação de contas, primeiros testes com prompts simples e configuração de acesso (OpenAI, xAI, Midjourney).</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:8px">
+            <h3 onclick="togglePanel('p2')">2. Chatbots e IA Conversacional <span class="pill">ver</span></h3>
+            <div id="p2" class="panel">
+              <p class="small muted">Engenharia de prompts, automação de tarefas, criação de chatbots e discussão sobre privacidade e vieses.</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:8px">
+            <h3 onclick="togglePanel('p3')">3. Geração e edição de imagens com IA <span class="pill">ver</span></h3>
+            <div id="p3" class="panel">
+              <p class="small muted">Técnicas de prompting visual para DALL·E, Midjourney e Stable Diffusion; projetos de identidade visual.</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:8px">
+            <h3 onclick="togglePanel('p4')">4. Assistência à Programação com IA <span class="pill">ver</span></h3>
+            <div id="p4" class="panel">
+              <p class="small muted">Uso do GitHub Copilot, geração de código, debugging e integração da IA no SDLC.</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:8px">
+            <h3 onclick="togglePanel('p5')">5. Produção de Vídeos com IA <span class="pill">ver</span></h3>
+            <div id="p5" class="panel">
+              <p class="small muted">Uso de Synthesia, Pictory e RunwayML para criar vídeos educativos e conteúdo multimídia.</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:8px">
+            <h3 onclick="togglePanel('p6')">6. IA para Produtividade e Agentes Inteligentes <span class="pill">ver</span></h3>
+            <div id="p6" class="panel">
+              <p class="small muted">Ferramentas de escrita, apresentações, composição musical e introdução a agentes de IA.</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:8px">
+            <h3 onclick="togglePanel('p7')">7. Ética e Uso Responsável de IA <span class="pill">ver</span></h3>
+            <div id="p7" class="panel">
+              <p class="small muted">Princípios éticos, LGPD, explicabilidade e práticas para IA confiável.</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:8px">
+            <h3 onclick="togglePanel('p8')">8. Projeto Final e Integração <span class="pill">ver</span></h3>
+            <div id="p8" class="panel">
+              <p class="small muted">Projeto integrador com apresentação dos resultados e análise das implicações éticas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ferramentas" style="margin-top:18px">
+        <div class="grid-3">
+          <div class="card">
+            <h3>Ferramentas que você vai dominar</h3>
+            <div class="tools" style="margin-top:8px">
+              <div class="tool">ChatGPT / Grok / Manus</div>
+              <div class="tool">DALL·E / Midjourney / Stable Diffusion</div>
+              <div class="tool">GitHub Copilot</div>
+              <div class="tool">Synthesia / Pictory / RunwayML</div>
+              <div class="tool">AIVA / Amper (áudio)</div>
+              <div class="tool">Ferramentas de produtividade (Grammarly, Jasper)</div>
+            </div>
+            <p class="small muted" style="margin-top:12px">Cada ferramenta será apresentada com demonstrações, exercícios guiados e projetos práticos.</p>
+          </div>
+
+          <div class="card">
+            <h3>Competências</h3>
+            <ul class="small muted">
+              <li>Engenharia de prompts avançada</li>
+              <li>Integração de ferramentas em fluxos de trabalho</li>
+              <li>Desenvolvimento de projetos práticos</li>
+              <li>Discussão crítica sobre ética e viés</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Mercado & Carreiras</h3>
+            <p class="small muted">Habilidades em ferramentas de IA são requisitadas em: pesquisa, startups, produtos digitais, consultoria e automação industrial.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projetos" class="card" style="margin-top:18px">
+        <h2>Projetos práticos</h2>
+        <div class="projects">
+          <div class="card">
+            <div style="font-weight:700">Chatbot FAQ</div>
+            <div class="small muted">Construir um chatbot para FAQ empresarial usando técnicas de prompting e integração.</div>
+          </div>
+
+          <div class="card">
+            <div style="font-weight:700">Identidade Visual</div>
+            <div class="small muted">Criar logo, mascote e material visual com DALL·E / Midjourney.</div>
+          </div>
+
+          <div class="card">
+            <div style="font-weight:700">Aplicação Web Assistida por IA</div>
+            <div class="small muted">Desenvolver app web com auxílio do GitHub Copilot e integração de APIs de IA.</div>
+          </div>
+
+          <div class="card">
+            <div style="font-weight:700">Vídeo Educativo</div>
+            <div class="small muted">Produzir um vídeo com Synthesia explicando um tema técnico.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="interativo" style="margin-top:18px;display:grid;grid-template-columns:1fr 320px;gap:16px">
+        <div class="card">
+          <h3>Mini-quiz: Você deve cursar esta disciplina?</h3>
+          <div class="quiz" id="quiz">
+            <label class="small">1) Você gosta de aplicar ferramentas práticas para resolver problemas?</label>
+            <select id="q1" class="input"><option value="0">-- escolha --</option><option value="1">Sim</option><option value="0">Não</option></select>
+
+            <label class="small">2) Você tem interesse em criação de conteúdo (imagens, vídeos)?</label>
+            <select id="q2" class="input"><option value="0">-- escolha --</option><option value="1">Sim</option><option value="0">Não</option></select>
+
+            <label class="small">3) Você quer aprender a usar IA para programar mais rápido?</label>
+            <select id="q3" class="input"><option value="0">-- escolha --</option><option value="1">Sim</option><option value="0">Não</option></select>
+
+            <button class="btn" onclick="calcQuiz()">Ver resultado</button>
+            <div id="quiz-res" class="small muted" style="margin-top:8px"></div>
+          </div>
+
+          <hr style="margin:12px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
+
+          <h3>FAQ rápido</h3>
+          <details class="small" style="margin-top:8px"><summary>Como acessar as ferramentas pagas?</summary><div class="muted" style="margin-top:8px">A maioria permite camadas gratuitas; para recursos avançados o curso oferece alternativas e instruções para uso acadêmico.</div></details>
+
+          <details class="small" style="margin-top:8px"><summary>Preciso de experiência prévia em programação?</summary><div class="muted" style="margin-top:8px">Não é obrigatório, mas ter noções básicas ajuda em projetos de integração.</div></details>
+        </div>
+
+        <aside class="card">
+          <h3>Chat de suporte</h3>
+          <div class="small muted">Use o chatbot abaixo para tirar dúvidas rápidas (protótipo).</div>
+          <div style="margin-top:8px;background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;height:220px;display:flex;flex-direction:column;justify-content:space-between">
+            <div id="chat" style="overflow:auto;font-size:14px"></div>
+            <div style="display:flex;gap:6px;margin-top:6px">
+              <input id="chat-in" class="input" placeholder="Escreva sua pergunta" />
+              <button class="btn" onclick="fakeChat()">Enviar</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="contato" style="margin-top:18px" class="card">
+        <h2>Contato & Professores</h2>
+        <div style="display:grid;grid-template-columns:1fr 320px;gap:16px">
+          <div>
+            <p class="small muted">Coordenador: Prof. Edval (contato: edval@ufpe.br) — utilize o e-mail institucional para assuntos de ementa, projetos e prazos.</p>
+            <p class="small muted">Sala e horários: Sala de laboratório (a ser definida). Acompanhe atualizações nesta página.</p>
+
+            <h3 style="margin-top:12px">Inscrições / Ficha</h3>
+            <p class="small muted">Para inscrever-se, confira sua grade e procure o link de matrícula na secretaria do curso. Use o botão abaixo para salvar o PDF da ementa.</p>
+            <a class="btn" href="/mnt/data/EMENTA FERRAMENTAS DE IA - PROF. EDVAL-2025 2.pdf" download>Baixar ementa (PDF)</a>
+          </div>
+
+          <aside class="card">
+            <h3>Formulário rápido</h3>
+            <input class="input" placeholder="Seu nome" id="f-name" />
+            <input class="input" placeholder="Email" id="f-email" style="margin-top:8px" />
+            <textarea id="f-msg" rows="4" class="input" style="margin-top:8px" placeholder="Mensagem / dúvida"></textarea>
+            <button class="btn" style="margin-top:8px" onclick="sendForm()">Enviar</button>
+            <div id="form-res" class="small muted" style="margin-top:8px"></div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© ${new Date().getFullYear()} — Disciplina Ferramentas de IA • CIN/UFPE</div>
+      <div class="small muted">Site criado como protótipo. Atualizações periódicas serão publicadas aqui.</div>
+    </footer>
+  </div>
+
+  <script>
+    function togglePanel(id){
+      const el = document.getElementById(id);
+      if(el.classList.contains('open')) el.classList.remove('open'); else el.classList.add('open');
+    }
+
+    function calcQuiz(){
+      const q1 = parseInt(document.getElementById('q1').value||0);
+      const q2 = parseInt(document.getElementById('q2').value||0);
+      const q3 = parseInt(document.getElementById('q3').value||0);
+      const s = q1+q2+q3;
+      const r = document.getElementById('quiz-res');
+      if(s>=2) r.innerText = 'Recomendado: Sim — você se beneficiará muito cursando Ferramentas de IA.';
+      else if(s==1) r.innerText = 'Vale a pena considerar — a disciplina pode complementar suas habilidades.';
+      else r.innerText = 'Talvez não seja essencial agora, mas acompanhe as novidades — há conteúdos úteis para diversas áreas.';
+    }
+
+    function fakeChat(){
+      const inpt = document.getElementById('chat-in');
+      const chat = document.getElementById('chat');
+      if(!inpt.value) return;
+      const u = document.createElement('div'); u.style.marginBottom='6px'; u.style.fontWeight='700'; u.innerText = 'Você: ' + inpt.value; chat.appendChild(u);
+      const b = document.createElement('div'); b.style.marginBottom='8px'; b.style.color='var(--muted)'; b.innerText = 'Assistente: Obrigado pela pergunta — confira a seção Ementa e envie um email para edval@ufpe.br para detalhes.'; chat.appendChild(b);
+      chat.scrollTop = chat.scrollHeight; inpt.value='';
+    }
+
+    function sendForm(){
+      const name = document.getElementById('f-name').value; const email = document.getElementById('f-email').value; const msg = document.getElementById('f-msg').value;
+      const res = document.getElementById('form-res');
+      if(!name || !email || !msg){res.innerText='Preencha todos os campos.';return}
+      res.innerText='Mensagem recebida — obrigado! (Protótipo: por favor envie email para edval@ufpe.br)';
+      document.getElementById('f-name').value='';document.getElementById('f-email').value='';document.getElementById('f-msg').value='';
+    }
+  </script>
+</body>
+</html>
